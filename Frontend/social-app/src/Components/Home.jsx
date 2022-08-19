@@ -1,10 +1,10 @@
 import React from 'react'
-import Register from './Register'
+import Post from './Post'
 
 const Home = () => {
   return (
   <>
-  < Register />
+  <Post />
   </>
   )
 }

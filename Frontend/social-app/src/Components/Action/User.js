@@ -20,7 +20,7 @@ export const loginuser = (email , password) => async (dispatch)=>{
         type:"loginSucess",
         payload:data.user
        })
-
+  JSON.parse(localStorage.setItem("user",JSON.stringify(data.user)))
     } catch(error){
           
       console.log(error.messege)

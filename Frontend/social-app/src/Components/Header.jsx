@@ -1,5 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import styled from 'styled-components'
 
 
@@ -21,10 +21,30 @@ font-size:20px;
 font-family:Montserrat;
 font-weight:bolder;
 `
+const Buton = styled.button`
+  background-color:white;
+  height:5vh;
+  width:5vw;
+  outline:none;
+  border-radius:3px;
+  font-size:15px;
+  color:black;
+  text-align:center;
+  cursor:pointer;
+`
 
 const Header = () => {
 
-    
+  const navigate = useNavigate()
+     const handle = ()=>{
+         localStorage.clear()
+        
+       
+        setTimeout(()=>{
+          navigate("/Login")
+          window.location.reload()
+        },2000)
+     }
     
   return (
     <>
@@ -32,6 +52,7 @@ const Header = () => {
          <Link style={{textDecoration:'none'}} to="/" ><Para  >HOME</Para></Link>
          <Link  style={{textDecoration:'none'}} to ="/about"> <Para>ABOUT</Para></Link>
          <Link  style={{textDecoration:'none'}} to ="/contact"> <Para>CONTACT</Para></Link>
+         <Buton onClick={handle}>LOGOUT</Buton>
          </Stylediv>   
     </>
   )

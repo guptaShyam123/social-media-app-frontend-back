@@ -4,6 +4,7 @@ import {FaUserAlt} from "react-icons/fa"
 import {RiLockPasswordFill} from "react-icons/ri"
 import {loginuser} from './Action/User'
 import { useDispatch } from 'react-redux'
+import {useNavigate} from 'react-router-dom'
 
 const Maindiv = styled.div`
 
@@ -237,6 +238,7 @@ margin-left:-5%;
 `
 const Login = () => {
 
+    const navigate = useNavigate()
     const [email , Setemail ] = useState()
     const [password , Setpassword ] = useState()
     const dispatch = useDispatch()
@@ -247,6 +249,15 @@ const Login = () => {
 
         console.log(email)
       dispatch(loginuser(email,password))
+
+      setTimeout(()=>{
+        navigate("/")
+        window.location.reload()
+       
+      },2000)
+    
+
+       
     }
     
   return (
